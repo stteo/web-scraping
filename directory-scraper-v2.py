@@ -32,4 +32,3 @@ for user in user_list:
 time.sleep(10)
 print ("end of program")
 driver.quit() 
-
