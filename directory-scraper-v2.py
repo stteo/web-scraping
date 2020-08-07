@@ -21,5 +21,5 @@ search = driver.find_element_by_id("keyword")
 search.send_keys("stteo@ucsc.edu")
 search.send_keys(Keys.RETURN)
 
-time.sleep(5)
+time.sleep(20)
 driver.quit() 
