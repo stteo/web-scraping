@@ -26,9 +26,17 @@ print ("got website and search box")
 # ITERATE THROUGH LIST
 for index, row in df.iterrows():
     current_user = row['Email']
-    print('Testing for Siteimprove User ID (' + current_user + ')')
     search_box.send_keys(current_user)
     search_box.send_keys(Keys.RETURN)
+
+    element = WebDriverWait(driver, 3).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
+    )
+
+    if ((element.text) == "1 record matched your search request.")
+        print('Siteimprove User ID (' + current_user + ') is found in UCSC campus database')
+    else: 
+        print('Testing for Siteimprove User ID (' + current_user + ')')
 
     search_box = driver.find_element_by_id("keyword") #have to redeclare the element again for some reason 
     search_box.clear()
