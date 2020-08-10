@@ -13,7 +13,7 @@ import time
 import pandas as pd
 
 # SETUP 
-print ("program begins and setup starts")
+print ("directory-scraper-v3.py - program starts")
 df = pd.read_csv('users-list.csv')
 PATH = "/Users/ttwsam/Documents/WebDriver/chromedriver"
 driver = webdriver.Chrome(PATH)
@@ -21,11 +21,10 @@ print (driver.title + "setup complete")
 
 driver.get("https://campusdirectory.ucsc.edu/cd_simple") 
 search_box = driver.find_element_by_id("keyword")
-print ("got website and search box")
 
 # ITERATE THROUGH LIST
 for index, row in df.iterrows():
-    current_user = row['Email']
+    current_user = row['Name']
     search_box.send_keys(current_user)
     search_box.send_keys(Keys.RETURN)
 
@@ -33,15 +32,25 @@ for index, row in df.iterrows():
         EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
     )
 
-    if ((element.text) == "1 record matched your search request.")
-        print('Siteimprove User ID (' + current_user + ') is found in UCSC campus database')
-    else: 
-        print('Testing for Siteimprove User ID (' + current_user + ')')
-
+    print('Name: (' + current_user + '): ' + element.text)
+   
     search_box = driver.find_element_by_id("keyword") #have to redeclare the element again for some reason 
+    search_box.clear()
+
+    current_user_email = row['Email']
+    search_box.send_keys(current_user_email)
+    search_box.send_keys(Keys.RETURN) 
+
+    element_email = WebDriverWait(driver, 3).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
+    )
+
+    print('Email: (' + current_user_email + '): ' + element_email.text)
+
+    search_box = driver.find_element_by_id("keyword") 
     search_box.clear()
 
 # BREAKDOWN 
 time.sleep(5)
-print ("end of program")
+print ("directory-scraper-v3.py - program ends")
 driver.quit() 
