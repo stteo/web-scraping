@@ -14,7 +14,7 @@ import pandas as pd
 
 # SETUP 
 print ("directory-scraper-v4.py - program starts")
-df = pd.read_csv('users-list-testing.csv')
+df = pd.read_csv('users-list.csv')
 PATH = "/Users/ttwsam/Documents/WebDriver/chromedriver"
 driver = webdriver.Chrome(PATH)
 print (driver.title + "setup complete")
@@ -27,7 +27,6 @@ email_search_box = driver.find_element_by_name("data[mail][0]")
 correct_message = ("1 record matched your search request.")
 incorrect_message = ("Your search did not return any records")
 index_count = 0
-print("the first index count is " + df["Name"].iloc[index_count])
 
 # ITERATE THROUGH LIST
 for index, row in df.iterrows():
@@ -41,6 +40,7 @@ for index, row in df.iterrows():
 
     if (element.text) == (correct_message):
         print('Siteimprove User (' + current_user + '): ' + element.text)
+        
     elif (element.text) == (incorrect_message):
         print('Siteimprove User (' + current_user + '): ' + element.text)
     else: 
