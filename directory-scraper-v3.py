@@ -28,11 +28,13 @@ for index, row in df.iterrows():
     search_box.send_keys(current_user)
     search_box.send_keys(Keys.RETURN)
 
-    element = WebDriverWait(driver, 3).until(
+    element_name = WebDriverWait(driver, 3).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
     )
+    
+    saved_name = element_name.text
 
-    print('Name: (' + current_user + '): ' + element.text)
+    print('Name: (' + current_user + '): ' + element_name.text)
    
     search_box = driver.find_element_by_id("keyword") #have to redeclare the element again for some reason 
     search_box.clear()
@@ -46,6 +48,11 @@ for index, row in df.iterrows():
     )
 
     print('Email: (' + current_user_email + '): ' + element_email.text)
+
+    if (saved_name) == (element_email.text): 
+        print("records match")
+    else: 
+        print("records don't match")
 
     search_box = driver.find_element_by_id("keyword") 
     search_box.clear()
