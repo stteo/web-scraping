@@ -19,8 +19,6 @@ PATH = "/Users/ttwsam/Documents/WebDriver/chromedriver"
 driver = webdriver.Chrome(PATH)
 print (driver.title + "setup complete")
 
-print(df[['Name', 'Email']])
-
 driver.get("https://campusdirectory.ucsc.edu/cd_advanced") 
 email_search_box = driver.find_element_by_name("data[mail][0]")
 
@@ -53,7 +51,6 @@ for index, row in df.iterrows():
             EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
         )
         print("     Searching for " + df["Name"].iloc[index_count] + " returns: " + element_name_search.text)
-
 
     index_count = (index_count + 1) 
 

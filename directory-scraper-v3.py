@@ -23,7 +23,7 @@ driver.get("https://campusdirectory.ucsc.edu/cd_simple")
 search_box = driver.find_element_by_id("keyword")
 
 # ITERATE THROUGH LIST
-for index, row in df.iterrows():
+for row in df.iterrows():
     current_user = row['Name']
     search_box.send_keys(current_user)
     search_box.send_keys(Keys.RETURN)
