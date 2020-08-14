@@ -52,7 +52,7 @@ for index, row in df.iterrows():
     email_search_box.send_keys(Keys.RETURN)
 
     # finds search results and sets to var "element"  
-    element = WebDriverWait(driver, 4).until(
+    element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="directoryContent"]/h3[2]'))
     )
 
