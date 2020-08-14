@@ -14,7 +14,7 @@ import pandas as pd
 
 # SETUP 
 print ("directory-scraper-v3.py - program starts")
-df = pd.read_csv('users-list.csv')
+df = pd.read_csv('users-list-testing.csv')
 PATH = "/Users/ttwsam/Documents/WebDriver/chromedriver"
 driver = webdriver.Chrome(PATH)
 print (driver.title + "setup complete")
@@ -23,7 +23,7 @@ driver.get("https://campusdirectory.ucsc.edu/cd_simple")
 search_box = driver.find_element_by_id("keyword")
 
 # ITERATE THROUGH LIST
-for row in df.iterrows():
+for index, row in df.iterrows():
     current_user = row['Name']
     search_box.send_keys(current_user)
     search_box.send_keys(Keys.RETURN)
