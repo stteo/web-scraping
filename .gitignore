@@ -2,3 +2,6 @@
 users-list.csv
 users-list-testing.csv
 
+config.py
+__pycache__/config_api.cpython-38.pyc
+__pycache__/config.cpython-38.pyc

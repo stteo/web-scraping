@@ -13,6 +13,7 @@ import time
 import pandas as pd
 import requests
 import json 
+import config
 
 print ("directory-scraper-v5.py - program starts")
 
@@ -21,13 +22,13 @@ api_user = "stteo@ucsc.edu"
 api_key = "2d907394ada437a4161b83100d97ad85"
 resource = "https://api.siteimprove.com/v2"
 url = "https://api.siteimprove.com/v2/settings/users?page=1&page_size=100&query=ucsc.edu"
-response = requests.get(url, auth=(api_user, api_key))
+response = requests.get(url, auth=(config.api_user, config.api_key))
 account = json.loads(response.text)
 
 if (response.status_code == 200): # verify api key connection
-    print("API connection established for user: " + api_user)
+    print("API connection established for user: " + config.api_user)
 else: 
-    print("API connection not established for user: " + api_user)
+    print("API connection not established for user: " + config.api_user)
 
 # SETUP SELENIUM WEB SCRAPER
 PATH = "/Users/ttwsam/Documents/WebDriver/chromedriver"
