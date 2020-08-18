@@ -18,9 +18,6 @@ import config
 print ("directory-scraper-v5.py - program starts")
 
 # SETUP SITEIMPROVE API 
-api_user = "stteo@ucsc.edu"
-api_key = "2d907394ada437a4161b83100d97ad85"
-resource = "https://api.siteimprove.com/v2"
 url = "https://api.siteimprove.com/v2/settings/users?page=1&page_size=100&query=ucsc.edu"
 response = requests.get(url, auth=(config.api_user, config.api_key))
 account = json.loads(response.text)
