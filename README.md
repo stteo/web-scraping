@@ -4,11 +4,13 @@ Campus Directory Web Scraping Script (directory-scraper-v5.py) is the latest ver
 
 ## Dependencies
 
-1. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install [Selenium](https://selenium-python.readthedocs.io/installation.html) and [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
+1. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install [Selenium](https://selenium-python.readthedocs.io/installation.html) and [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html), and requests.
 
 ```bash
 pip install selenium
 pip install pandas
+pip install requests
 ```
 2. Download the [Chrome driver](https://chromedriver.chromium.org/downloads) if you're using Chrome, or other web driver of your preference.
+
 
